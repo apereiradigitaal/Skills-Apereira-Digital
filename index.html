@@ -179,12 +179,14 @@
     background:var(--surface);border:1px solid var(--rule-soft);border-radius:9px;
     margin-bottom:14px;overflow:hidden;transition:border-color .22s ease;
   }
-  .skill.open{border-color:var(--rule);}
+  .skill[open]{border-color:var(--rule);}
   .s-toggle{
-    width:100%;display:flex;align-items:center;gap:16px;padding:22px;
-    background:none;border:0;text-align:left;cursor:pointer;color:inherit;font:inherit;
+    display:flex;align-items:center;gap:16px;padding:22px;
+    cursor:pointer;list-style:none;
     transition:background .2s ease;
   }
+  .s-toggle::-webkit-details-marker{display:none;}
+  .s-toggle::marker{content:"";}
   .s-toggle:hover{background:var(--surface-2);}
   .s-ico{
     width:44px;height:44px;flex:none;border-radius:8px;background:var(--gold-wash);
@@ -199,10 +201,11 @@
   .s-txt h3{font-size:1.22rem;margin-bottom:4px;line-height:1.3;}
   .s-txt p{font-size:0.86rem;color:var(--muted);}
   .chev{width:17px;height:17px;flex:none;stroke:var(--sand);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;transition:transform .28s ease;}
-  .skill.open .chev{transform:rotate(180deg);}
+  .skill[open] .chev{transform:rotate(180deg);}
 
-  .s-body{max-height:0;overflow:hidden;transition:max-height .34s ease;}
   .s-in{padding:4px 22px 26px;border-top:1px solid var(--rule-soft);margin-top:2px;}
+  .skill[open] > .s-in, .ad[open] > .a-in{animation:revela .3s ease;}
+  @keyframes revela{from{opacity:0;transform:translateY(-6px);}to{opacity:1;transform:none;}}
   .s-in h4{
     font-family:var(--sans);font-size:0.68rem;font-weight:700;letter-spacing:0.16em;
     text-transform:uppercase;color:var(--gold);margin:24px 0 9px;
@@ -232,23 +235,20 @@
   }
   .btn:hover{background:#f6e79c;transform:translateY(-1px);box-shadow:0 6px 18px rgba(241,221,128,0.16);}
   .btn svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
-  .btn-ghost{
-    background:none;color:var(--gold);border:1px solid var(--gold-dim);font-weight:500;
-  }
-  .btn-ghost:hover{background:var(--gold-wash);color:var(--gold);box-shadow:none;}
 
   /* ============ ADAPTAR ============ */
   .ad{border-top:1px solid var(--rule-soft);}
   .ad:last-of-type{border-bottom:1px solid var(--rule-soft);}
   .a-toggle{
-    width:100%;display:flex;align-items:center;justify-content:space-between;gap:18px;
-    padding:19px 4px;background:none;border:0;cursor:pointer;color:inherit;font:inherit;text-align:left;
+    display:flex;align-items:center;justify-content:space-between;gap:18px;
+    padding:19px 4px;cursor:pointer;list-style:none;
   }
+  .a-toggle::-webkit-details-marker{display:none;}
+  .a-toggle::marker{content:"";}
   .a-toggle h3{font-size:1.04rem;font-weight:600;transition:color .2s ease;}
   .a-toggle:hover h3{color:var(--gold);}
   .ad .chev{stroke:var(--muted);}
-  .ad.open .chev{transform:rotate(180deg);}
-  .a-body{max-height:0;overflow:hidden;transition:max-height .3s ease;}
+  .ad[open] .chev{transform:rotate(180deg);}
   .a-in{padding:0 4px 22px;max-width:64ch;}
   .a-in p{font-size:0.93rem;color:var(--sand);}
   .a-in code{
@@ -393,8 +393,8 @@
     </div>
 
     <!-- SKILL 1 -->
-    <article class="skill" data-skill>
-      <button class="s-toggle" type="button" aria-expanded="false">
+    <details class="skill">
+      <summary class="s-toggle">
         <span class="s-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5C9.2 5.8 7.3 9.6 7.3 13.2a4.7 4.7 0 009.4 0c0-3.6-1.9-7.4-4.7-10.7z"/><circle cx="12" cy="13.6" r="2"/></svg></span>
         <span class="s-txt">
           <span class="s-slug">/hooks-magneticos</span>
@@ -402,45 +402,42 @@
           <p>20 aberturas de vídeo divididas em atração, autoridade, conexão e venda</p>
         </span>
         <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
-      </button>
-      <div class="s-body">
-        <div class="s-in">
-          <h4>O que ela faz</h4>
-          <p>Você dá um tema e ela entrega 5 hooks (frases de abertura) para cada uma destas 4 intenções:</p>
-          <div class="chips">
+      </summary>
+      <div class="s-in">
+        <h4>O que ela faz</h4>
+        <p>Você dá um tema e ela entrega 5 hooks (frases de abertura) para cada uma destas 4 intenções:</p>
+        <div class="chips">
             <span class="chip">🎯 Atração — para o scroll</span>
             <span class="chip">👑 Autoridade — te posiciona como referência</span>
             <span class="chip">💛 Conexão — gera identificação</span>
             <span class="chip">💰 Venda — direciona pra ação</span>
-          </div>
+        </div>
 
-          <h4>Quando usar</h4>
-          <p>Todo santo dia que bater aquele "não sei nem como começar esse vídeo". Também serve pra testar variações de um mesmo hook antes de gravar.</p>
+        <h4>Quando usar</h4>
+        <p>Todo santo dia que bater aquele "não sei nem como começar esse vídeo". Também serve pra testar variações de um mesmo hook antes de gravar.</p>
 
-          <h4>Como funciona</h4>
-          <ul>
+        <h4>Como funciona</h4>
+        <ul>
             <li>Você informa o tema e, se quiser, nicho, formato e público</li>
             <li>Ela entrega os hooks já em minúsculas, prontos pra tela inicial do reels</li>
             <li>Se pedir, gera variações A/B ou transforma um hook em mini-roteiro de 30 segundos</li>
-          </ul>
+        </ul>
 
-          <h4>Exemplo de comando</h4>
-          <p class="prompt">"cria hooks pra um conteúdo sobre organização financeira pra autônomos"</p>
+        <h4>Exemplo de comando</h4>
+        <p class="prompt">"cria hooks pra um conteúdo sobre organização financeira pra autônomos"</p>
 
-          <div class="dl">
+        <div class="dl">
             <a class="btn" href="https://raw.githubusercontent.com/apereiradigitaal/Skills-Apereira-Digital/HEAD/downloads/hooks-magneticos.zip">
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12M7 11l5 5 5-5M4 20h16"/></svg>
               Baixar .zip
             </a>
-            <a class="btn btn-ghost" href="https://github.com/apereiradigitaal/Skills-Apereira-Digital/tree/HEAD/skills/hooks-magneticos" target="_blank" rel="noopener">Ler o arquivo no GitHub</a>
-          </div>
         </div>
       </div>
-    </article>
+    </details>
 
     <!-- SKILL 2 -->
-    <article class="skill" data-skill>
-      <button class="s-toggle" type="button" aria-expanded="false">
+    <details class="skill">
+      <summary class="s-toggle">
         <span class="s-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M4.5 17l4-7.5 3.5 5 2.5-4.2L19 17"/></svg></span>
         <span class="s-txt">
           <span class="s-slug">/roteiro-pauta-quente</span>
@@ -448,40 +445,37 @@
           <p>Pesquisa o que está em alta no seu nicho e entrega um roteiro completo em .docx</p>
         </span>
         <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
-      </button>
-      <div class="s-body">
-        <div class="s-in">
-          <h4>O que ela faz</h4>
-          <p>Pesquisa na web as pautas mais quentes do seu nicho, ranqueia as melhores oportunidades de conteúdo e transforma a escolhida num roteiro completo, com a fala escrita do início ao fim.</p>
+      </summary>
+      <div class="s-in">
+        <h4>O que ela faz</h4>
+        <p>Pesquisa na web as pautas mais quentes do seu nicho, ranqueia as melhores oportunidades de conteúdo e transforma a escolhida num roteiro completo, com a fala escrita do início ao fim.</p>
 
-          <h4>Quando usar</h4>
-          <p>Quando bater o branco de "não sei sobre o que postar hoje", ou quando você quer aproveitar um assunto em alta antes que ele esfrie.</p>
+        <h4>Quando usar</h4>
+        <p>Quando bater o branco de "não sei sobre o que postar hoje", ou quando você quer aproveitar um assunto em alta antes que ele esfrie.</p>
 
-          <h4>Como funciona</h4>
-          <ul>
+        <h4>Como funciona</h4>
+        <ul>
             <li>Você informa o nicho e, se quiser, plataforma e tom de voz</li>
             <li>Ela pesquisa e mostra 3 a 5 pautas ranqueadas, com o motivo de cada uma</li>
             <li>Você escolhe, ou pede pra ela seguir com a melhor direto</li>
             <li>Recebe o roteiro em .docx: hook, fala completa, legenda, hashtags e dicas de gravação</li>
-          </ul>
+        </ul>
 
-          <h4>Exemplo de comando</h4>
-          <p class="prompt">"busca uma pauta quente sobre marketing digital pra mim e monta o roteiro"</p>
+        <h4>Exemplo de comando</h4>
+        <p class="prompt">"busca uma pauta quente sobre marketing digital pra mim e monta o roteiro"</p>
 
-          <div class="dl">
+        <div class="dl">
             <a class="btn" href="https://raw.githubusercontent.com/apereiradigitaal/Skills-Apereira-Digital/HEAD/downloads/roteiro-pauta-quente.zip">
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12M7 11l5 5 5-5M4 20h16"/></svg>
               Baixar .zip
             </a>
-            <a class="btn btn-ghost" href="https://github.com/apereiradigitaal/Skills-Apereira-Digital/tree/HEAD/skills/roteiro-pauta-quente" target="_blank" rel="noopener">Ler o arquivo no GitHub</a>
-          </div>
         </div>
       </div>
-    </article>
+    </details>
 
     <!-- SKILL 3 -->
-    <article class="skill" data-skill>
-      <button class="s-toggle" type="button" aria-expanded="false">
+    <details class="skill">
+      <summary class="s-toggle">
         <span class="s-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20l4.2-1L19 8.2 15.8 5 5 15.8 4 20z"/><path d="M13.6 7.2l3.2 3.2"/></svg></span>
         <span class="s-txt">
           <span class="s-slug">/avoid-ai-writing</span>
@@ -489,38 +483,34 @@
           <p>Audita e reescreve qualquer texto pra soar como uma pessoa de verdade escreveu</p>
         </span>
         <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
-      </button>
-      <div class="s-body">
-        <div class="s-in">
-          <h4>O que ela faz</h4>
-          <p>Analisa um texto em busca dos padrões que denunciam "escrito por IA" (travessão em excesso, negrito demais, frase genérica, palavra robótica tipo "utilizar" ou "robusto") e devolve uma versão reescrita e natural.</p>
+      </summary>
+      <div class="s-in">
+        <h4>O que ela faz</h4>
+        <p>Analisa um texto em busca dos padrões que denunciam "escrito por IA" (travessão em excesso, negrito demais, frase genérica, palavra robótica tipo "utilizar" ou "robusto") e devolve uma versão reescrita e natural.</p>
 
-          <h4>Quando usar</h4>
-          <p>Antes de publicar qualquer legenda, roteiro ou texto que passou pela IA em algum momento e precisa soar humano.</p>
+        <h4>Quando usar</h4>
+        <p>Antes de publicar qualquer legenda, roteiro ou texto que passou pela IA em algum momento e precisa soar humano.</p>
 
-          <h4>Como funciona</h4>
-          <ul>
+        <h4>Como funciona</h4>
+        <ul>
             <li>Você cola o texto</li>
             <li>Ela lista os problemas encontrados, citando o trecho exato</li>
             <li>Entrega a versão reescrita e resume o que mudou</li>
             <li>Faz uma segunda checagem, pra garantir que não sobrou nenhum tique de robô</li>
-          </ul>
+        </ul>
 
-          <h4>Exemplo de comando</h4>
-          <p class="prompt">"revisa esse texto e tira a cara de IA" + cole o texto em seguida</p>
+        <h4>Exemplo de comando</h4>
+        <p class="prompt">"revisa esse texto e tira a cara de IA" + cole o texto em seguida</p>
 
-          <div class="dl">
+        <div class="dl">
             <a class="btn" href="https://raw.githubusercontent.com/apereiradigitaal/Skills-Apereira-Digital/HEAD/downloads/avoid-ai-writing.zip">
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12M7 11l5 5 5-5M4 20h16"/></svg>
               Baixar .zip
             </a>
-            <a class="btn btn-ghost" href="https://github.com/apereiradigitaal/Skills-Apereira-Digital/tree/HEAD/skills/avoid-ai-writing" target="_blank" rel="noopener">Ler o arquivo no GitHub</a>
-          </div>
         </div>
       </div>
-    </article>
+    </details>
 
-    <p class="note">Prefere pegar tudo de uma vez? Abra o <a href="https://github.com/apereiradigitaal/Skills-Apereira-Digital" target="_blank" rel="noopener">repositório completo</a> e use o botão verde <strong>Code → Download ZIP</strong>.</p>
   </div>
 </section>
 
@@ -533,76 +523,105 @@
       <p class="intro">Essas skills são um ponto de partida, não uma regra fixa. Elas vêm com exemplos genéricos de propósito, pra funcionar em qualquer nicho já no primeiro uso, mas ficam muito mais fortes quando você ajusta pro seu contexto. Clique em cada item pra ver como.</p>
     </div>
 
-    <div class="ad" data-adapt>
-      <button class="a-toggle" type="button" aria-expanded="false">
+    <details class="ad">
+      <summary class="a-toggle">
+        <h3>Entenda o arquivo que você baixou</h3>
+        <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+      </summary>
+      <div class="a-in">
+        <p>Cada skill é uma pasta com um arquivo <code>SKILL.md</code> dentro, e esse arquivo é texto puro. Abra no bloco de notas, no TextEdit, em qualquer editor. Ele tem duas partes: o <strong>cabeçalho</strong> (as primeiras linhas, entre <code>---</code>) traz o nome e a descrição, que é o que faz o Claude saber <em>quando</em> usar a skill sozinho. Todo o <strong>resto</strong> é o que ela faz depois de acionada, e é onde mora quase tudo que vale a pena personalizar. Se você quebrar alguma coisa, baixa de novo aqui e recomeça.</p>
+      </div>
+    </details>
+
+    <details class="ad">
+      <summary class="a-toggle">
+        <h3>Comece pelo que mais te incomoda</h3>
+        <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+      </summary>
+      <div class="a-in">
+        <p>Não saia editando tudo de uma vez. Use a skill como ela veio umas três ou quatro vezes e anote onde o resultado te decepcionou. Quase sempre cai em um destes três: "não é assim que eu falo" (é tom de voz), "isso não serve pro meu público" (é contexto e nicho) ou "está bom, mas não é o meu formato" (é estrutura de entrega). Corrigir o que incomoda de verdade rende muito mais que reescrever o arquivo inteiro por perfeccionismo.</p>
+      </div>
+    </details>
+
+    <details class="ad">
+      <summary class="a-toggle">
         <h3>Ensine o seu tom de voz</h3>
         <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
-      </button>
-      <div class="a-body"><div class="a-in">
+      </summary>
+      <div class="a-in">
         <p>Descrever tom com adjetivo quase não funciona: "descontraída e próxima" significa uma coisa pra você e outra pro Claude. O que funciona é exemplo. Abra o <code>SKILL.md</code>, cole três legendas suas que performaram bem e liste os seus padrões: "escrevo tudo em minúscula", "uso você e nunca vocês", "não uso exclamação". É a edição que dá mais retorno.</p>
-      </div></div>
-    </div>
+      </div>
+    </details>
 
-    <div class="ad" data-adapt>
-      <button class="a-toggle" type="button" aria-expanded="false">
+    <details class="ad">
+      <summary class="a-toggle">
         <h3>Troque os exemplos pelo seu nicho</h3>
         <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
-      </button>
-      <div class="a-body"><div class="a-in">
+      </summary>
+      <div class="a-in">
         <p>As skills trazem nichos amplos (marketing, saúde, educação) pra não travar quando ainda não sabem nada sobre você. Substitua pelo seu, com detalhe: o vocabulário que o seu público usa, as dores reais dele e, tão importante quanto, o que você <em>não</em> quer que apareça. Essa última linha evita metade dos resultados ruins.</p>
-      </div></div>
-    </div>
+      </div>
+    </details>
 
-    <div class="ad" data-adapt>
-      <button class="a-toggle" type="button" aria-expanded="false">
+    <details class="ad">
+      <summary class="a-toggle">
         <h3>Fixe o formato que você já usa</h3>
         <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
-      </button>
-      <div class="a-body"><div class="a-in">
+      </summary>
+      <div class="a-in">
         <p>Se você já grava num formato próprio, não aceite o padrão da skill. Na <code>roteiro-pauta-quente</code>, o Passo 4 tem o modelo de roteiro inteiro escrito: apague e cole o seu. O mesmo vale pra quantidade. Se 20 hooks é informação demais, troque os "5" por "2" na estrutura de entrega.</p>
-      </div></div>
-    </div>
+      </div>
+    </details>
 
-    <div class="ad" data-adapt>
-      <button class="a-toggle" type="button" aria-expanded="false">
+    <details class="ad">
+      <summary class="a-toggle">
         <h3>Alimente a lista do que evitar</h3>
         <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
-      </button>
-      <div class="a-body"><div class="a-in">
+      </summary>
+      <div class="a-in">
         <p>Essa é a parte que quase ninguém faz e é o que separa uma skill morna de uma skill afiada. Toda vez que o resultado não for a sua cara, não descarte em silêncio: abra o arquivo e escreva aquilo na seção "O que evitar". Cinco ou seis rodadas e ela para de errar naquilo pra sempre.</p>
-      </div></div>
-    </div>
+      </div>
+    </details>
 
-    <div class="ad" data-adapt>
-      <button class="a-toggle" type="button" aria-expanded="false">
+    <details class="ad">
+      <summary class="a-toggle">
         <h3>Combine as três num pedido só</h3>
         <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
-      </button>
-      <div class="a-body"><div class="a-in">
+      </summary>
+      <div class="a-in">
         <p>Peça o fluxo inteiro numa conversa só: "busca uma pauta quente sobre o meu nicho, monta o roteiro, e antes de fechar roda o editor anti-IA na legenda". Três etapas viram um pedido, e você recebe pauta pesquisada, roteiro pronto e legenda já limpa.</p>
-      </div></div>
-    </div>
+      </div>
+    </details>
 
-    <div class="ad" data-adapt>
-      <button class="a-toggle" type="button" aria-expanded="false">
+    <details class="ad">
+      <summary class="a-toggle">
+        <h3>Ajuste a identidade visual</h3>
+        <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+      </summary>
+      <div class="a-in">
+        <p>As skills vêm com uma base neutra: fundo <code>#292929</code>, texto <code>#f4f4f4</code> e <code>#e0dbd7</code>, destaque <code>#f1dd80</code> e fonte Arial. Nenhuma delas tem logo, marca d'água ou dado de contato de ninguém. Se a sua marca tem paleta própria, troque esses códigos de cor pelos seus e mude a fonte. Se quiser o seu logo nos arquivos gerados, acrescente uma linha dizendo onde ele fica.</p>
+      </div>
+    </details>
+
+    <details class="ad">
+      <summary class="a-toggle">
         <h3>Crie a sua própria skill</h3>
         <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
-      </button>
-      <div class="a-body"><div class="a-in">
+      </summary>
+      <div class="a-in">
         <p>Todo processo que você repete e explica do zero toda vez pode virar uma skill: responder as mesmas dúvidas de cliente, montar o relatório mensal, escrever a descrição de um produto novo. E você não precisa escrever o arquivo na mão. Descreva o processo, a entrada e a saída que quer, e peça: "monta o arquivo SKILL.md pra mim".</p>
-      </div></div>
-    </div>
-
-    <div class="guide">
-      <div>
-        <h3>Guia completo de adaptação</h3>
-        <p>O passo a passo inteiro, com os blocos de texto prontos pra você copiar e colar dentro das suas skills.</p>
       </div>
-      <a class="btn" href="https://github.com/apereiradigitaal/Skills-Apereira-Digital/blob/HEAD/GUIA-ADAPTACAO.md" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5.5A1.5 1.5 0 015.5 4H10a2 2 0 012 2v13a2 2 0 00-2-2H5.5A1.5 1.5 0 014 15.5z"/><path d="M20 5.5A1.5 1.5 0 0018.5 4H14a2 2 0 00-2 2v13a2 2 0 012-2h4.5a1.5 1.5 0 001.5-1.5z"/></svg>
-        Ler o guia
-      </a>
-    </div>
+    </details>
+
+    <details class="ad">
+      <summary class="a-toggle">
+        <h3>Teste, ajuste, repita</h3>
+        <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+      </summary>
+      <div class="a-in">
+        <p>A primeira versão raramente é a definitiva, e não precisa ser. Use por uma semana e observe onde a skill trava, onde soa genérica, e principalmente o que você editou à mão antes de publicar. Cada uma dessas edições é uma regra que faltava no arquivo. Volte e escreva ela. Skill boa é skill que passou por uso real e foi corrigida depois.</p>
+      </div>
+    </details>
   </div>
 </section>
 
@@ -643,35 +662,12 @@
 
     <div class="f-base">
       <span>© <span id="ano">2026</span> Apereira Digital · Material bônus do Destrave Seu Conteúdo</span>
-      <a href="https://github.com/apereiradigitaal/Skills-Apereira-Digital" target="_blank" rel="noopener">Repositório das skills</a>
     </div>
   </div>
 </footer>
 
 <script>
   (function(){
-    // Acordeões (skills + adaptar)
-    function bind(sel, itemSel, bodySel){
-      document.querySelectorAll(sel).forEach(function(btn){
-        btn.addEventListener('click', function(){
-          var item = btn.closest(itemSel);
-          var body = item.querySelector(bodySel);
-          var open = item.classList.toggle('open');
-          btn.setAttribute('aria-expanded', open ? 'true' : 'false');
-          body.style.maxHeight = open ? (body.scrollHeight + 'px') : null;
-        });
-      });
-    }
-    bind('[data-skill] .s-toggle', '.skill', '.s-body');
-    bind('[data-adapt] .a-toggle', '.ad', '.a-body');
-
-    // Reajusta a altura quando a janela muda de tamanho
-    window.addEventListener('resize', function(){
-      document.querySelectorAll('.skill.open .s-body, .ad.open .a-body').forEach(function(b){
-        b.style.maxHeight = b.scrollHeight + 'px';
-      });
-    });
-
     // Link ativo na navegação
     var secs = document.querySelectorAll('section[id]');
     var links = document.querySelectorAll('.nav-links a');
