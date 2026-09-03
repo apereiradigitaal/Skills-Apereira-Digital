@@ -199,6 +199,22 @@ tiver a própria identidade visual, trocar as cores acima pelas dela.
 
 Este arquivo é texto puro. Abra num editor simples, edite e salve.
 
+### O caminho mais rápido: peça pro Claude editar
+
+Você não precisa mexer no arquivo na mão.
+
+1. Descompacte o `.zip` e arraste o `SKILL.md` para uma conversa com o Claude
+2. Diga o que te incomodou, com exemplo do que saiu errado e de como você queria
+3. Entregue o seu contexto de uma vez: nicho, vocabulário do seu público e o que você nunca fala
+4. Termine com "me devolve o SKILL.md completo, em arquivo, mantendo o cabeçalho igual"
+5. Suba a nova versão em Configurações, Personalizar, Habilidades, Adicionar, Fazer upload de habilidade
+6. Teste num caso real e volte no mesmo chat pra pedir o próximo ajuste
+
+Pedir "melhora essa skill" não funciona: o Claude não sabe o que é melhor pra você. Diga o que
+saiu errado e como você queria que fosse.
+
+### Ou edite você mesma
+
 1. **Troque os exemplos de nicho.** Na seção "Adaptação por nicho", apague os nichos que não
    são seus e escreva o seu, com as palavras que o seu público realmente usa.
 2. **Ensine o seu tom de voz.** Cole abaixo da seção "Formato" 5 hooks seus que já

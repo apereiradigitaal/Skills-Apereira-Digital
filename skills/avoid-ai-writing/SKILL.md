@@ -296,6 +296,22 @@ Sem logo e sem marca d'água.
 
 ## Como adaptar esta skill pro seu negócio
 
+### O caminho mais rápido: peça pro Claude editar
+
+Você não precisa mexer no arquivo na mão.
+
+1. Descompacte o `.zip` e arraste o `SKILL.md` para uma conversa com o Claude
+2. Diga o que te incomodou, com exemplo do que saiu errado e de como você queria
+3. Entregue o seu contexto de uma vez: nicho, vocabulário do seu público e o que você nunca fala
+4. Termine com "me devolve o SKILL.md completo, em arquivo, mantendo o cabeçalho igual"
+5. Suba a nova versão em Configurações, Personalizar, Habilidades, Adicionar, Fazer upload de habilidade
+6. Teste num caso real e volte no mesmo chat pra pedir o próximo ajuste
+
+Pedir "melhora essa skill" não funciona: o Claude não sabe o que é melhor pra você. Diga o que
+saiu errado e como você queria que fosse.
+
+### Ou edite você mesma
+
 1. **Adicione as suas palavras proibidas.** Toda marca tem palavra que não usa. Acrescente as
    suas na tabela "Palavras e expressões a trocar", com a substituição que você prefere.
 2. **Proteja o seu jeito de escrever.** Se você usa travessão de propósito, ou escreve tudo em

@@ -53,13 +53,12 @@ Se você quiser só ler o conteúdo de uma skill antes de baixar, abra a pasta [
 ## Como instalar
 
 1. **Baixe o arquivo `.zip`** da skill que você quer usar
-2. **Abra as configurações do Claude** e procure a área de Skills (dentro de Recursos)
-3. **Envie o `.zip`** e ative a skill na sua conta
+2. No Claude, abra **Configurações** → **Personalizar** → **Habilidades**
+3. Clique em **Adicionar** → **Fazer upload de habilidade** e selecione o `.zip`
 4. **Peça a tarefa normalmente** — o Claude aplica o padrão da skill sozinho
 
-O caminho exato dentro das configurações pode mudar conforme o Claude é atualizado. Se não
-encontrar de primeira, o passo a passo atual está em
-[support.claude.com](https://support.claude.com).
+Os nomes dos menus podem mudar conforme o Claude é atualizado. Se não encontrar de primeira,
+o passo a passo atual está em [support.claude.com](https://support.claude.com).
 
 > Não descompacte o `.zip` antes de enviar. O Claude espera o arquivo compactado, com a pasta
 > da skill dentro dele.

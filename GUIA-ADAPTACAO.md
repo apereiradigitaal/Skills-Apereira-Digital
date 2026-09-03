@@ -36,6 +36,39 @@ formatos de entrega e os exemplos. É aqui que mora 90% do que vale a pena perso
 
 ---
 
+## 0. O caminho mais rápido: peça pro Claude editar
+
+Todos os passos abaixo você pode fazer abrindo o arquivo num editor. Mas dá pra fazer tudo
+conversando, e costuma ser mais rápido.
+
+1. **Anexe o arquivo no chat.** Descompacte o `.zip` e arraste o `SKILL.md` para a conversa.
+   O Claude precisa ver o arquivo inteiro pra editar sem inventar.
+2. **Diga o que te incomodou, com exemplo.** Pedir "melhora essa skill" não funciona, porque o
+   Claude não sabe o que é melhor pra você.
+3. **Entregue o seu contexto de uma vez.** Nicho, vocabulário do seu público, e o que você
+   nunca fala.
+4. **Peça o arquivo pronto:** "me devolve o SKILL.md completo, em arquivo, mantendo o cabeçalho
+   igual".
+5. **Suba a nova versão** em Configurações, Personalizar, Habilidades, Adicionar, Fazer upload
+   de habilidade. Se a antiga continuar na lista, apague pra não ficar duas iguais.
+6. **Teste num caso real e volte** no mesmo chat pra pedir o próximo ajuste.
+
+### Exemplos de pedido que funcionam
+
+> "essa skill me entregou hooks com cara de coach, tipo 'desperte seu potencial'. eu falo de um
+> jeito mais seco e direto. ajusta a skill pra nunca usar esse tom e me devolve o arquivo."
+
+> "meu nicho é nutrição pra corredores amadores. meu público fala treino longo, carbo, ritmo de
+> prova. eu nunca falo de dieta restritiva nem de emagrecimento. troca os exemplos de nicho da
+> skill por esses."
+
+> "toda vez ela usa a palavra jornada e eu detesto. adiciona na lista do que evitar e me devolve
+> o arquivo atualizado."
+
+O resto deste guia diz **o que** mudar. Você escolhe se muda na mão ou pedindo no chat.
+
+---
+
 ## 1. Comece pelo que mais dói
 
 Não saia editando tudo. Use a skill do jeito que ela veio por três ou quatro vezes e anote onde
@@ -204,10 +237,10 @@ Skill boa é skill que passou por uso real e foi corrigida depois.
 ## Resumo em cinco linhas
 
 1. Use do jeito que veio, umas quatro vezes, e anote o que incomodou
-2. Cole três exemplos do seu texto pra ensinar o tom de voz
-3. Troque os nichos de exemplo pelo seu, incluindo o que não falar
-4. Adicione na lista "o que evitar" tudo que sair errado
-5. Repita por uma semana — depois disso, crie a sua própria
+2. Anexe o SKILL.md num chat e peça a mudança, em vez de editar na mão
+3. Cole três exemplos do seu texto pra ensinar o tom de voz
+4. Troque os nichos de exemplo pelo seu, incluindo o que não falar
+5. Adicione na lista "o que evitar" tudo que sair errado e repita por uma semana
 
 ---
 
